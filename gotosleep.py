@@ -24,11 +24,16 @@ async def on_ready():
     members = '\n - '.join([member.name for member in guild.members])
     print(f'Guild Members:\n - {members}')
 
+# @client.event
+# async def on_message(message):
+#     if client.user.id != message.author.id:
+#         if message.content == "test":
+#             await message.reply("response")
+
 @client.event
-async def on_message(message):
-    if client.user.id != message.author.id:
-        if message.content == "test":
-            await message.reply("response")
+async def on_ready():
+    channel = client.get_channel(1092193210467635412)
+    await channel.send("i work now")
 
 
 @client.event
